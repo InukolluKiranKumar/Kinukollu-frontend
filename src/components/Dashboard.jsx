@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { getCases, createCase, askAboutCase } from '../api/client';
 
-function Dashboard({ token, userName }) {
+function Dashboard({ token, userName, onLogout }) {
   const [cases, setCases] = useState([]);
   const [query, setQuery] = useState('');
   const [caseType, setCaseType] = useState('RIGHTS_QUERY');
@@ -52,8 +52,18 @@ function Dashboard({ token, userName }) {
 
   return (
     <div style={{ maxWidth: 700, margin: '50px auto', padding: 20 }}>
-      <h1>Kinukollu</h1>
-      <p style={{ color: '#cbd5e1', marginTop: -10 }}>Welcome, {userName}</p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div>
+          <h1>Kinukollu</h1>
+          <p style={{ color: '#cbd5e1', marginTop: -10 }}>Welcome, {userName}</p>
+        </div>
+        <button
+          onClick={onLogout}
+          style={{ background: '#334155', padding: '8px 16px', fontSize: 14 }}
+        >
+          Log Out
+        </button>
+      </div>
 
       <form onSubmit={handleSubmit} className="card">
         <select
