@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { getCases, createCase, askAboutCase } from '../api/client';
 
 function Dashboard({ token, userName }) {
@@ -85,7 +86,9 @@ function Dashboard({ token, userName }) {
           <div className="question-box">{c.summary}</div>
 
           {answers[c.id] ? (
-            <div className="answer-box">{answers[c.id]}</div>
+            <div className="answer-box markdown-content">
+              <ReactMarkdown>{answers[c.id]}</ReactMarkdown>
+            </div>
           ) : (
             <button onClick={() => handleAsk(c.id)} disabled={loading} style={{ padding: '8px 16px', marginTop: 12 }}>
               {loading ? 'Thinking...' : 'Get Answer'}
