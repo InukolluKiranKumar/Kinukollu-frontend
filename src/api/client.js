@@ -1,16 +1,33 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
+class ApiError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.status = status;
+  }
+}
+
+async function handleResponse(response) {
+  if (response.status === 401 || response.status === 403) {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    window.location.reload();
+    throw new ApiError('Session expired. Please log in again.', response.status);
+  }
+  if (!response.ok) {
+    const error = await response.text();
+    throw new ApiError(error || 'Request failed', response.status);
+  }
+  return response.json();
+}
+
 export async function signup(userData) {
   const response = await fetch(`${API_BASE_URL}/auth/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData),
   });
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(error || 'Signup failed');
-  }
-  return response.json();
+  return handleResponse(response);
 }
 
 export async function login(email, password) {
@@ -19,19 +36,14 @@ export async function login(email, password) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
   });
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(error || 'Login failed');
-  }
-  return response.json();
+  return handleResponse(response);
 }
 
 export async function getCases(token) {
   const response = await fetch(`${API_BASE_URL}/cases`, {
     headers: { 'Authorization': `Bearer ${token}` },
   });
-  if (!response.ok) throw new Error('Failed to fetch cases');
-  return response.json();
+  return handleResponse(response);
 }
 
 export async function createCase(token, caseType, query) {
@@ -43,8 +55,7 @@ export async function createCase(token, caseType, query) {
     },
     body: JSON.stringify({ caseType, query }),
   });
-  if (!response.ok) throw new Error('Failed to create case');
-  return response.json();
+  return handleResponse(response);
 }
 
 export async function askAboutCase(token, caseId) {
@@ -52,6 +63,5 @@ export async function askAboutCase(token, caseId) {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}` },
   });
-  if (!response.ok) throw new Error('Failed to get answer');
-  return response.json();
+  return handleResponse(response);
 }

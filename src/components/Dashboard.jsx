@@ -8,6 +8,7 @@ function Dashboard({ token, userName, onLogout }) {
   const [caseType, setCaseType] = useState('RIGHTS_QUERY');
   const [loading, setLoading] = useState(false);
   const [answers, setAnswers] = useState({});
+  const [error, setError] = useState('');
 
   useEffect(() => {
     loadCases();
@@ -18,7 +19,7 @@ function Dashboard({ token, userName, onLogout }) {
       const data = await getCases(token);
       setCases(data);
     } catch (err) {
-      console.error(err);
+      setError(err.message);
     }
   };
 
@@ -26,25 +27,27 @@ function Dashboard({ token, userName, onLogout }) {
     e.preventDefault();
     if (!query.trim()) return;
 
+    setError('');
     setLoading(true);
     try {
       await createCase(token, caseType, query);
       setQuery('');
       await loadCases();
     } catch (err) {
-      console.error(err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
   const handleAsk = async (caseId) => {
+    setError('');
     setLoading(true);
     try {
       const result = await askAboutCase(token, caseId);
       setAnswers((prev) => ({ ...prev, [caseId]: result.answer }));
     } catch (err) {
-      console.error(err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -64,6 +67,19 @@ function Dashboard({ token, userName, onLogout }) {
           Log Out
         </button>
       </div>
+
+      {error && (
+        <div style={{
+          background: 'rgba(248, 113, 113, 0.1)',
+          border: '1px solid #f87171',
+          color: '#fca5a5',
+          padding: 12,
+          borderRadius: 6,
+          marginBottom: 16
+        }}>
+          {error}
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="card">
         <select
