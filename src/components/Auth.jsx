@@ -40,10 +40,13 @@ function Auth({ onAuthSuccess }) {
 
   return (
     <div style={{ maxWidth: 400, margin: '80px auto', padding: 20 }}>
-      <h1 style={{ textAlign: 'center' }}>Kinukollu</h1>
-      <p style={{ textAlign: 'center', color: '#94a3b8', marginTop: -10 }}>
+      <div className="hero">
+    <h1 className="logo">Kinukollu</h1>
+
+    <p className="subtitle">
         India's AI Citizen Assistant
-      </p>
+    </p>
+</div>
 
       <form onSubmit={handleSubmit} className="card" style={{ marginTop: 20 }}>
         <h2 style={{ marginTop: 0 }}>{isSignup ? 'Sign Up' : 'Log In'}</h2>
