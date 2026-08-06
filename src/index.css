@@ -51,10 +51,10 @@ radial-gradient(
 ),
 linear-gradient(
     180deg,
-    #111827 0%,
-    #151b28 35%,
-    #151b28 65%,
-    #111827 100%
+    #322818 0%,
+    #474747 35%,
+    #1c3520 65%,
+    #1b211c 100%
 );
 
   -webkit-font-smoothing: antialiased;
@@ -82,14 +82,15 @@ a{
     font-weight:700;
     letter-spacing:-0.8px;
     line-height:1;
-    font-size:32px;
-    margin:10px 10px;
+    font-size:45px;
+    margin: 5px 0px;
+    font-family: Verdana;
 
     background:linear-gradient(
         90deg,
-        #FF9933 0%,
-        #FFFFFF 50%,
-        #138808 100%
+        #FF9933 10%,
+        #FFFFFF 35%,
+        #138808 120%
     );
 
     -webkit-background-clip:text;
@@ -108,15 +109,15 @@ a{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:10px;
+    gap:5px;
     margin-bottom:42px;
     padding-top:16px;
 }
 .subtitle{
 
-    margin-top:12px;
+    margin-top:0px;
 
-    font-size:20px;
+    font-size:15px;
 
     font-weight:500;
 
@@ -127,9 +128,6 @@ a{
 
     letter-spacing:.3px;
 
-    
-    font-size:20px;
-    font-weight:500;
 
 }
 
