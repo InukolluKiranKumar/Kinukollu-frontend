@@ -118,17 +118,6 @@ a{
     margin-top:0px;
 
     font-size:15px;
-
-    font-weight:500;
-
-    
-
-    text-shadow:
-        0 1px 2px rgba(255,255,255,.35);
-
-    letter-spacing:.3px;
-
-
 }
 
 h2{
@@ -183,7 +172,7 @@ p{
 
 .card{
 
-  background:rgba(17,24,39,.90);
+  background:rgba(28, 49, 96, 0.9);
 
   border:1px solid var(--border);
 
@@ -206,7 +195,7 @@ select{
 
   width:100%;
 
-  background:#1b2638;
+  background:#c6cbd7;
 
   color:var(--text);
 
@@ -239,7 +228,7 @@ select:focus{
   border-color:var(--orange);
 
   box-shadow:
-  0 0 0 4px rgba(255,153,51,.16);
+  0 0 0 4px rgba(123, 105, 87, 0.16);
 
 }
 
@@ -445,8 +434,13 @@ button:disabled{
 
   .logo{
 
-    font-size:26px;
+    font-size:45px;
 
+  }
+  .subtitle{
+    
+    font-size:15px;
+  
   }
 
   h2{
