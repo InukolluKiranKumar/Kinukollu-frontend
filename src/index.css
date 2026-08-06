@@ -85,7 +85,7 @@ a{
     letter-spacing:-0.8px;
     line-height:1;
     font-size:47px;
-    margin: 5px 0px;
+    margin: 5px 10px;
     
     background:linear-gradient(
         90deg,
@@ -97,8 +97,6 @@ a{
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
-
-    display:inline-block;
 
     filter:
         drop-shadow(0 2px 3px rgba(0,0,0,.25))
