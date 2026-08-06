@@ -103,6 +103,32 @@ a{
         drop-shadow(0 8px 18px rgba(0,0,0,.18));
 
 }
+.innerLogo{
+    font-weight:600;
+    letter-spacing:-0.8px;
+    line-height:1;
+    font-size:40px;
+    margin-bottom: 7px;
+
+    background:linear-gradient(
+        90deg,
+        #FF9933 10%,
+        #FFFFFF 35%,
+        #138808 120%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+
+    filter:
+        drop-shadow(0 2px 3px rgba(0,0,0,.25))
+        drop-shadow(0 8px 18px rgba(0,0,0,.18));
+}
+.innerTitle{
+  margin-top:3px;
+  font-size:15px;
+}
 .hero{
     display:flex;
     flex-direction:column;

@@ -57,8 +57,8 @@ function Dashboard({ token, userName, onLogout }) {
     <div style={{ maxWidth: 700, margin: '50px auto', padding: 20 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
-          <h1 className="logo">Kinukollu</h1>
-          <p style={{ color: '#cbd5e1', marginTop: -10 }} className="subtitle">Welcome {userName}</p>
+          <h1 className="innerLogo">Kinukollu</h1>
+          <p style={{ color: '#cbd5e1', marginTop: -10 }} className="innerTitle">Welcome {userName}</p>
         </div>
         <button
           onClick={onLogout}
