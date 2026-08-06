@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 *{
   margin:0;
@@ -49,12 +51,12 @@ radial-gradient(
     rgba(19,136,8,.08),
     transparent 38%
 ),
-linear-gradient(
-    180deg,
-    #322818 0%,
-    #474747 35%,
-    #1c3520 65%,
-    #1b211c 100%
+ linear-gradient(
+  135deg,
+  #020617 0%,
+  #0f172a 35%,
+  #1e293b 65%,
+  #334155 100%
 );
 
   -webkit-font-smoothing: antialiased;
@@ -82,10 +84,9 @@ a{
     font-weight:700;
     letter-spacing:-0.8px;
     line-height:1;
-    font-size:45px;
+    font-size:47px;
     margin: 5px 0px;
-    font-family: Verdana;
-
+    
     background:linear-gradient(
         90deg,
         #FF9933 10%,
@@ -148,69 +149,81 @@ p{
 }
 
 .login-card{
+    width:100%;
+    max-width:440px;
+    margin:auto;
 
-  width:100%;
+    background:rgba(15, 23, 42, 0.72);
 
-  max-width:440px;
+    border:1px solid rgba(255,255,255,.08);
 
-  margin: auto;
+    border-radius:24px;
 
-  background:rgba(17,24,39,.92);
+    padding:42px;
 
-  border:1px solid var(--border);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
 
-  border-radius:24px;
-
-  padding:42px;
-
-  backdrop-filter: blur(14px);
-
-  box-shadow:
-  0 20px 45px rgba(0,0,0,.28);
-
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .card{
+    background:rgba(30, 41, 59, 0.70);
 
-  background:rgba(28, 49, 96, 0.9);
+    border:1px solid rgba(255,255,255,.06);
 
-  border:1px solid var(--border);
+    border-radius:20px;
 
-  border-radius:20px;
+    padding:26px;
 
-  padding:26px;
+    margin-bottom:22px;
 
-  margin-bottom:22px;
+    backdrop-filter:blur(18px);
 
-  box-shadow:
-  0 12px 30px rgba(0,0,0,.18);
-
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28);
 }
-
 /* ---------- Form ---------- */
 
 input,
 textarea,
 select{
+    width:100%;
 
-  width:100%;
+    background:rgba(255,255,255,.06);
 
-  background:#c6cbd7;
+    color:#f8fafc;
 
-  color:var(--text);
+    border:1px solid rgba(255,255,255,.08);
 
-  border:1px solid var(--border);
+    border-radius:14px;
 
-  border-radius:14px;
+    padding:15px 16px;
 
-  padding:15px 16px;
+    font-size:15px;
 
-  font-size:15px;
+    transition:0.25s;
 
-  transition:.25s;
+    margin-bottom:16px;
+}
 
-  margin-bottom:16px;
+input:focus,
+textarea:focus,
+select:focus{
+    outline:none;
 
+    border-color:#60a5fa;
+
+    background:rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 0 4px rgba(96,165,250,.15);
+}
+
+::placeholder{
+    color:#94a3b8;
 }
 
 textarea{
@@ -240,7 +253,7 @@ button{
 
   cursor:pointer;
 
-  background:var(--orange);
+  background-color:rgb(189, 110, 7);
 
   color:white;
 
@@ -416,37 +429,79 @@ button:disabled{
 
 /* ---------- Responsive ---------- */
 
-@media (max-width:768px){
+@media (max-width:480px){
 
-  .container{
+    .container{
+        width:95%;
+        margin:20px auto;
+    }
 
-    width:94%;
+    .login-card{
+        padding:22px;
+        border-radius:18px;
+        max-width:420px;
+        backdrop-filter:blur(16px);
+    }
 
-    margin:30px auto;
+    .logo{
+        font-size:46px;
+    }
 
-  }
+    h2{
+        font-size:22px;
+    }
 
-  .login-card{
+    .subtitle{
+        font-size:14px;
+    }
 
-    padding:28px;
+    input,
+    textarea,
+    select{
+        padding:12px 14px;
+        font-size:14px;
+    }
 
-  }
+    button{
+        padding:13px;
+        font-size:15px;
+    }
+}
 
-  .logo{
+/* Brand Logo */
+.logo{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
 
-    font-size:45px;
+/* Whole Website */
+body{
+    font-family: 'Inter', sans-serif;
+}
 
-  }
-  .subtitle{
-    
-    font-size:15px;
-  
-  }
+/* Headings */
+h1,
+h2,
+h3{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
 
-  h2{
+/* Inputs & Buttons */
+input,
+textarea,
+select,
+button{
+    font-family: 'Inter', sans-serif;
+}
+body{
+    font-family: 'Manrope', sans-serif;
+}
 
-    font-size:24px;
-
-  }
-
+.logo,
+h1,
+h2,
+h3{
+    font-family: 'Space Grotesk', sans-serif;
 }
