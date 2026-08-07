@@ -7,8 +7,8 @@ class ApiError extends Error {
   }
 }
 
-async function handleResponse(response) {
-  if (response.status === 401 || response.status === 403) {
+async function handleResponse(response, isAuthRequest = false) {
+  if ((response.status === 401 || response.status === 403) && !isAuthRequest) {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
     window.location.reload();
@@ -27,7 +27,7 @@ export async function signup(userData) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData),
   });
-  return handleResponse(response);
+  return handleResponse(response, true);
 }
 
 export async function login(email, password) {
@@ -36,7 +36,7 @@ export async function login(email, password) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
   });
-  return handleResponse(response);
+  return handleResponse(response, true);
 }
 
 export async function getCases(token) {
